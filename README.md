@@ -1,14 +1,14 @@
 This simple PowerShell Script allow you to calculate the daily change rate
 
-To install the script verify Powershell version is upper than 2.0
+To install the script verify Powershell version is upper than 3.0
 ```
-PS C:\Users\blanchet> $PSVersionTable.PSVersion
+PS C:\Users\blanchet> $PSVersionTable.PSVersion 
 Major  Minor  Build  Revision
 -----  -----  -----  --------
 5      1      19041  610
 ```
 
-Installer PowerShell Tool Kit de NetApp : http://support.netapp.com/NOW/download/tools/powershell_toolkit/ 
+Installer PowerShell Tool Kit de NetApp :  https://mysupport.netapp.com/site/tools/tool-eula/powershell-toolkit
 
 check PowerShell Tool Kit version 
 ```
