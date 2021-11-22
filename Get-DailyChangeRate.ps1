@@ -257,10 +257,15 @@ foreach ( $Vol in ( $VolList | Skip-Null ) ) {
 	if ( $Vol.State -eq "online" ) {
 		if ( $global:CDOT -eq $True ) {
 			if ( $Vol.VolumeStateAttributes.IsNodeRoot -eq $True ) {
-				if ($Verbose ) { Write-Host "Volume: $Vol SnapShot:[$SelectedSnap] is Node Root Volume ignore it" }
+				if ($Verbose) { Write-Host "Volume: $Vol SnapShot:[$SelectedSnap] is Node Root Volume ignore it" }
 				$SelectedSnapList = $null
 			} else {
-				$SelectedSnapList=Get-NcSnapshot $Vol -vserver $Vol.vserver 
+				if ( ( $Vol.VolumeIdAttributes.StyleExtended -eq "flexgroup" ) -or ( $Vol.VolumeIdAttributes.StyleExtended -eq "flexgroup_constituent" ) ) {
+					Write-Warning "Warning: $Vol is a Flexgroup or Flexgroup constituent and it is not Supported by Snap Delta. Ignore volume $Vol"
+					$SelectedSnapList = $null
+				} else {
+					$SelectedSnapList=Get-NcSnapshot $Vol -vserver $Vol.vserver 
+				}
 			}
 		} else { 
 			$SelectedSnapList=Get-NaSnapshot $Vol 
