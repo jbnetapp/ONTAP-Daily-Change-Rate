@@ -1,4 +1,6 @@
-This simple PowerShell Script allow you to calculate the daily change rate
+This simple PowerShell Script allow you to calculate the daily change rate based on ONTAP Snapshots Snap Delta. The script can calculate the daily change rate at the full cluster level, or at the Vserver level or at the Aggregate level or for a list of selected volumes. Without option the script will calculate the daily change rate at the full cluster level. Snap Delta is currently not supported with FlexGroup volume. The script will ignore any FlexGroup volume or FlexGroup Constituent.   
+
+This script can work with last ONTAP release or older version in 7-Mode.  
 
 To install the script verify Powershell version is upper than 3.0
 ```
@@ -15,7 +17,7 @@ check PowerShell Tool Kit version
 PS C:\Users\blanchet> Get-NaToolkitVersion
 Major  Minor  Build  Revision
 -----  -----  -----  --------
-4      5      0      0
+9      8      0      0
 ```
 
 Verify if execution Policy is Unrestrected
@@ -26,12 +28,12 @@ Unrestricted
 
 Clone the Project
 ```
-git clone 
+git clone https://github.com/jbnetapp/ONTAP-Daily-Change-Rate
 ```
 
 Script help
 ```
-PS C:\Users\blanchet\home\git\odcr> .\Get-DailyChangeRate.ps1 -Help
+PS C:\Users\blanchet\home\git\ocdr> .\Get-DailyChangeRate.ps1 -Help
 NAME
         Get-DailyChangeRate
 
