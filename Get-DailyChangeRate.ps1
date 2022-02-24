@@ -1,5 +1,5 @@
 #############################################################################################
-# SnapDelta list PowerShell script  v0.6
+# SnapDelta list PowerShell script  v0.6.1
 # Jerome.Blanchet@NetApp.com
 #
 Param (
